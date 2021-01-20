@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Notes of Computational Methods for Economists | Xinrong Liu</title>
+<meta name="description" content="About econ. About data. About world.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://xinrong45.github.io/favicon.ico?v=1611126410303">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xinrong45.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://xinrong45.github.io">
+        <img class="avatar" src="https://xinrong45.github.io/images/avatar.png?v=1611126410303" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://xinrong45.github.io">
+        <h1 class="site-title">Xinrong Liu</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            Home
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            Archives
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            Tags
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">Notes of Computational Methods for Economists</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-05-22</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://xinrong45.github.io/tag/CuDPz13ce/">
+                    Computation
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <blockquote>
+<p>Based on lecture notes of Jesús Fernández-Villaverde's <a href="https://www.sas.upenn.edu/~jesusfv/teaching.html">Computational Methods for Economists</a></p>
+</blockquote>
+<h2 id="unix-tutorial"><a href="https://www.sas.upenn.edu/~jesusfv/Chapter_HPC_4_Unix.pdf">Unix Tutorial</a></h2>
+<h3 id="file-system">File system</h3>
+<ul>
+<li><code>pwd</code>: the full path of the current working directory</li>
+<li><code>ls</code>: list files</li>
+<li><code>cd</code>: change directory
+<ul>
+<li><code>.</code>: current working directory</li>
+<li><code>..</code>: the parent directory</li>
+<li><code>-</code>:  the previous working directory</li>
+<li><code>~</code>:  the default user’s directory</li>
+</ul>
+</li>
+<li><code>mkdir</code>: make directory</li>
+<li><code>touch</code>: access a file (if the file did not exist, then it creates it)</li>
+<li><code>mv</code>: move; change the directory of a file as well as its name (<code>-n</code> prevents overwriting)</li>
+<li><code>cp</code>: copy</li>
+<li><code>rm</code>: remove (<code>-d</code> to delete a directory, <code>-r</code> delete all files within a directory)</li>
+</ul>
+<h3 id="basic-functional-command">Basic functional command</h3>
+<ul>
+<li><code>echo</code>: output text, e.g. <code>echo hello world</code></li>
+<li><code>&gt;</code>: overwirte;<code>&gt;&gt;</code>: append
+<ul>
+<li><code>echo [some text] &gt; example.txt</code></li>
+<li><code>echo [some text] &gt;&gt; example.txt</code></li>
+</ul>
+</li>
+<li>arithmetic: <code>echo $((1*1))</code> or <code>expr 1 \* 1</code></li>
+<li>Loops:
+<ul>
+<li><code>for ((i=1; i&lt;=5; i++)); do echo $i; done</code> (C-style)</li>
+<li><code>while ...; do ...; done</code></li>
+</ul>
+</li>
+<li>If...Then...:<pre><code>$ if ...; then
+&gt; ...
+&gt; elif ...; then
+&gt; ...
+&gt; else
+&gt; ...
+&gt; fi
+</code></pre>
+<ul>
+<li><code>if ((1 &lt;= 2)); then echo true; else echo false; fi</code></li>
+<li><code>if [ 'ABC' != 'XYZ' ]; then echo true; else false; fi</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre><code>$ mkdir Prime_Calculator
+$ cd Prime_Calculator
+$ touch Times_Table.sh
+$ touch Calculator.sh
+$ bash Times_Table.sh 100
+</code></pre>
+<pre><code>$ cd Table
+$ ls
+Multiples_of_10.txt Multiples_of_4.txt Multiples_of_7.txt
+Multiples_of_2.txt Multiples_of_5.txt Multiples_of_8.txt
+Multiples_of_3.txt Multiples_of_6.txt Multiples_of_9.txt
+
+$ head -3 Multiples_of_2.txt
+4
+6
+8
+
+bash Times_Table.sh $1
+echo $(comm -23 &lt;(seq 2 $1) &lt;(sort -n Table/*.txt | uniq)) &gt; Primes.txt
+
+$ bash Calculator.sh N
+</code></pre>
+<h2 id="high-performance-computing">High-performance Computing</h2>
+<p>Even simple problems in economics generate HPC challenges:</p>
+<ol>
+<li>Dynamic programing with several state variables.</li>
+<li>Highly non-linear DSGE models with many shocks.</li>
+<li>Problems with occasionally binding constraints.</li>
+<li>Complex asset pricing.</li>
+<li>Structural estimation.</li>
+<li>Frontier estimators without close-forms formulae.</li>
+<li>Handling large datasets.</li>
+</ol>
+<p>Usually, but not always, HPC involves the use of several processors:</p>
+<ol>
+<li>Multi-core/many-core CPUs (in a single machine or networked).</li>
+<li>Many-core coprocessors.</li>
+<li>GPUs (graphics processing units).</li>
+<li>TPUs (tensor processing units).</li>
+<li>FPGAs (ﬁeld-programmable gate arrays).</li>
+</ol>
+<p>How to accelerate:</p>
+<ul>
+<li>Python: Numba/Cython</li>
+<li>R: Rcpp</li>
+</ul>
+<p>OOP/functional programming</p>
+<p>Optimization Strategies:</p>
+<ol>
+<li>Benchmarking.</li>
+<li>Proﬁling.</li>
+<li>Vectorization.</li>
+<li>Pre-allocating memory and memoization.</li>
+<li>Unrolling loops.</li>
+<li>Inlining.</li>
+</ol>
+<p>Learning Program:</p>
+<ol>
+<li>Julia</li>
+<li><a href="https://github.com/yihui/knitr-book/tree/master/markdown">knitr</a></li>
+<li><a href="http://swcarpentry.github.io/shell-novice/">Unix</a></li>
+<li><a href="http://numba.pydata.org/numba-doc/latest/user/5minguide.html">Numba</a></li>
+<li><a href="https://hpc-carpentry.github.io/hpc-intro/">HPC</a></li>
+<li><a href="/Users/xinrong/Downloads/progit.pdf">git</a></li>
+<li><a href="https://docs.python.org/3/library/doctest.html">doctest</a></li>
+</ol>
+<p>Vectorized &quot;dot&quot; operators</p>
+<p>For every binary operation like <code>^</code>, there is a corresponding &quot;dot&quot; operation <code>.^</code> that is automatically defined to perform <code>^</code> element-by-element on arrays. For example, <code>[1,2,3] ^ 3</code> is not defined, since there is no standard mathematical meaning to &quot;cubing&quot; a (non-square) array, but <code>[1,2,3] .^ 3</code> is defined as computing the elementwise (or &quot;vectorized&quot;) result <code>[1^3, 2^3, 3^3]</code>. Similarly for unary operators like <code>!</code> or <code>√</code>, there is a corresponding <code>.√</code> that applies the operator elementwise.</p>
+<p>More specifically, <code>a .^ b</code> is parsed as the &quot;dot&quot; call <code>(^).(a,b)</code>, which performs a broadcast operation: it can combine arrays and scalars, arrays of the same size (performing the operation elementwise), and even arrays of different shapes (e.g. combining row and column vectors to produce a matrix). Moreover, like all vectorized &quot;dot calls,&quot; these &quot;dot operators&quot; are fusing. For example, if you compute <code>2 .* A.^2 .+ sin.(A)</code> (or equivalently <code>@. 2A^2 + sin(A)</code>, using the <code>@.</code> macro) for an array A, it performs a single loop over A, computing <code>2a^2 + sin(a)</code> for each element of A. In particular, nested dot calls like <code>f.(g.(x))</code> are fused, and &quot;adjacent&quot; binary operators like <code>x .+ 3 .* x.^2</code> are equivalent to nested dot calls <code>(+).(x, (*).(3, (^).(x, 2)))</code>.</p>
+<p><code>julia&gt; NaN != NaN</code><br>
+<code>True</code></p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://xinrong45.github.io/post/riemann-integral/">
+              <h3 class="post-title">
+                下一篇：Chapter 3 Riemann Integral
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">About econ. About data. About world.</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Contact me | <a class="rss" href="https://xinrong45.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
