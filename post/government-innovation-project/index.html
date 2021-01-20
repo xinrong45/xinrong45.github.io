@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Government Innovation Project | Xinrong Liu</title>
+<meta name="description" content="About econ. About data. About world.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://xinrong45.github.io/favicon.ico?v=1611126202540">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xinrong45.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://xinrong45.github.io">
+        <img class="avatar" src="https://xinrong45.github.io/images/avatar.png?v=1611126202540" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://xinrong45.github.io">
+        <h1 class="site-title">Xinrong Liu</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            Home
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            Archives
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            Tags
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">Government Innovation Project</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-01-19</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://xinrong45.github.io/tag/CuDPz13ce/">
+                    Computation
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>#Government Personnel Data Analysis</p>
+<p>#Introduction</p>
+<p>#Why is it a difficult problem?<br>
+Although one-to-one connections between MAG data, patent data and personnel data are essential to previous problems, it is hard to directly establish such connections with given names and positions of each entry in those datasets. Constructing the connection between different data means we need to gather information from various aspects for the same person, and the key problem is to determine whether records from different data are linked to a same person. Ideally, we can use their names, such as author names from MAG data, employee names from personnel data or inventor names from patent data, to directly merge different datasets. However, given the large scale of our data and the pattern of common names, it is inevitable that different people could have a same name, which will introduce unnecessary noise to our results.</p>
+<p>There are two fundamental challenges that we are faced with when dealing with the three data, which are similarity in names and lack of information. Firstly, for direct name matching, a primary problem is that different systems have different styles to record names. For example, if “Jack Smith”, “Smith, Jack” or “Jack A Smith” are names recorded in different systems for the same Jack Smith, there is no universal way to directly match those names, especially consistency is not guaranteed even within a system. Secondly, in order to precisely identify those matches on the individual level, we need to use additional information, such as the department they work for and the distance between registered locations, to help us decide whether two matched records are representing the same person. However, such information is not available in original data which means we have to analyze relevant variables and subtract new information from them.</p>
+<p>Even with cleaned name formatting and subtracted information, we still have poor performance for directly matching different data. For records with names “Jack Smith” and “Jack A Smith”, which may highly possibly be a match, we will determine they are different people based on direct matching because of different text strings. Accordingly, a better scoring system that qualifies how sure we are that a match is true can help us to improve the robustness of our results.</p>
+<p>##Similarity in names</p>
+<p>##Lack of information</p>
+<p>##Direct matching</p>
+<p>#How come our methods solve this problem pretty good?</p>
+<p>##Cleaning name formatting</p>
+<p>##Information extraction</p>
+<p>##Probabilistic matching</p>
+<p>#Performance Analysis</p>
+<p>##MAG data and Personnel data</p>
+<p>###Publication per department<br>
+Table</p>
+<p>###Publication per sub-agency<br>
+Table</p>
+<p>###Citation per department<br>
+Table</p>
+<p>###Citation per sub-agency<br>
+Table</p>
+<p>##Patent data and Personnel data</p>
+<p>###Patents for Federal Inventors<br>
+Table</p>
+<p>###Patents for Govt Interested Inventors<br>
+Table</p>
+<p>#Further Discussion</p>
+<p>#Reference</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://xinrong45.github.io/post/cheap-talk/">
+              <h3 class="post-title">
+                下一篇：Cheap Talk
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">About econ. About data. About world.</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Contact me | <a class="rss" href="https://xinrong45.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
