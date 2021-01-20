@@ -5,14 +5,14 @@
     
 <meta charset="utf-8" >
 
-<title>Government Innovation Project | Xinrong Liu</title>
+<title>Government Personnel Data Analysis | Xinrong Liu</title>
 <meta name="description" content="About econ. About data. About world.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://xinrong45.github.io/favicon.ico?v=1611126410303">
+<link rel="shortcut icon" href="https://xinrong45.github.io/favicon.ico?v=1611126530374">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://xinrong45.github.io/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://xinrong45.github.io">
-        <img class="avatar" src="https://xinrong45.github.io/images/avatar.png?v=1611126410303" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://xinrong45.github.io/images/avatar.png?v=1611126530374" alt="" width="32px" height="32px">
       </a>
       <a href="https://xinrong45.github.io">
         <h1 class="site-title">Xinrong Liu</h1>
@@ -74,9 +74,9 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">Government Innovation Project</h2>
+          <h2 class="post-title">Government Personnel Data Analysis</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2021-01-19</span>
+            <span><i class="icon-calendar-outline"></i> 2021-01-18</span>
             
               <span>
                 <i class="icon-pricetags-outline"></i>
@@ -90,36 +90,35 @@
             
           </div>
           <div class="post-content">
-            <p>#Government Personnel Data Analysis</p>
-<p>#Introduction</p>
-<p>#Why is it a difficult problem?<br>
-Although one-to-one connections between MAG data, patent data and personnel data are essential to previous problems, it is hard to directly establish such connections with given names and positions of each entry in those datasets. Constructing the connection between different data means we need to gather information from various aspects for the same person, and the key problem is to determine whether records from different data are linked to a same person. Ideally, we can use their names, such as author names from MAG data, employee names from personnel data or inventor names from patent data, to directly merge different datasets. However, given the large scale of our data and the pattern of common names, it is inevitable that different people could have a same name, which will introduce unnecessary noise to our results.</p>
+            <h1 id="introduction">Introduction</h1>
+<h1 id="why-is-it-a-difficult-problem">Why is it a difficult problem?</h1>
+<p>Although one-to-one connections between MAG data, patent data and personnel data are essential to previous problems, it is hard to directly establish such connections with given names and positions of each entry in those datasets. Constructing the connection between different data means we need to gather information from various aspects for the same person, and the key problem is to determine whether records from different data are linked to a same person. Ideally, we can use their names, such as author names from MAG data, employee names from personnel data or inventor names from patent data, to directly merge different datasets. However, given the large scale of our data and the pattern of common names, it is inevitable that different people could have a same name, which will introduce unnecessary noise to our results.</p>
 <p>There are two fundamental challenges that we are faced with when dealing with the three data, which are similarity in names and lack of information. Firstly, for direct name matching, a primary problem is that different systems have different styles to record names. For example, if “Jack Smith”, “Smith, Jack” or “Jack A Smith” are names recorded in different systems for the same Jack Smith, there is no universal way to directly match those names, especially consistency is not guaranteed even within a system. Secondly, in order to precisely identify those matches on the individual level, we need to use additional information, such as the department they work for and the distance between registered locations, to help us decide whether two matched records are representing the same person. However, such information is not available in original data which means we have to analyze relevant variables and subtract new information from them.</p>
 <p>Even with cleaned name formatting and subtracted information, we still have poor performance for directly matching different data. For records with names “Jack Smith” and “Jack A Smith”, which may highly possibly be a match, we will determine they are different people based on direct matching because of different text strings. Accordingly, a better scoring system that qualifies how sure we are that a match is true can help us to improve the robustness of our results.</p>
-<p>##Similarity in names</p>
-<p>##Lack of information</p>
-<p>##Direct matching</p>
-<p>#How come our methods solve this problem pretty good?</p>
-<p>##Cleaning name formatting</p>
-<p>##Information extraction</p>
-<p>##Probabilistic matching</p>
-<p>#Performance Analysis</p>
-<p>##MAG data and Personnel data</p>
-<p>###Publication per department<br>
-Table</p>
-<p>###Publication per sub-agency<br>
-Table</p>
-<p>###Citation per department<br>
-Table</p>
-<p>###Citation per sub-agency<br>
-Table</p>
-<p>##Patent data and Personnel data</p>
-<p>###Patents for Federal Inventors<br>
-Table</p>
-<p>###Patents for Govt Interested Inventors<br>
-Table</p>
-<p>#Further Discussion</p>
-<p>#Reference</p>
+<h2 id="similarity-in-names">Similarity in names</h2>
+<h2 id="lack-of-information">Lack of information</h2>
+<h2 id="direct-matching">Direct matching</h2>
+<h1 id="how-come-our-methods-solve-this-problem-pretty-good">How come our methods solve this problem pretty good?</h1>
+<h2 id="cleaning-name-formatting">Cleaning name formatting</h2>
+<h2 id="information-extraction">Information extraction</h2>
+<h2 id="probabilistic-matching">Probabilistic matching</h2>
+<h1 id="performance-analysis">Performance Analysis</h1>
+<h2 id="mag-data-and-personnel-data">MAG data and Personnel data</h2>
+<h3 id="publication-per-department">Publication per department</h3>
+<p>Table</p>
+<h3 id="publication-per-sub-agency">Publication per sub-agency</h3>
+<p>Table</p>
+<h3 id="citation-per-department">Citation per department</h3>
+<p>Table</p>
+<h3 id="citation-per-sub-agency">Citation per sub-agency</h3>
+<p>Table</p>
+<h2 id="patent-data-and-personnel-data">Patent data and Personnel data</h2>
+<h3 id="patents-for-federal-inventors">Patents for Federal Inventors</h3>
+<p>Table</p>
+<h3 id="patents-for-govt-interested-inventors">Patents for Govt Interested Inventors</h3>
+<p>Table</p>
+<h1 id="further-discussion">Further Discussion</h1>
+<h1 id="reference">Reference</h1>
 
           </div>
         </div>
