@@ -95,6 +95,11 @@ h1 {
   margin-bottom: 0;
 }
 
+.job-market {
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
 .profile-links {
   display: flex;
   align-items: flex-start;
@@ -145,6 +150,18 @@ h2 {
   margin-bottom: 0.65rem;
   font-size: 1.15rem;
   line-height: 1.4;
+}
+
+.paper-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.paper-links a {
+  color: var(--accent-dark);
+  text-decoration: underline;
 }
 
 .paper p:last-child {
